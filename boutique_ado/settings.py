@@ -12,18 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Load env.py if it exists
-env_path = os.path.join(BASE_DIR, 'env.py')
-if os.path.exists(env_path):    
-    import env
-else:
-    print("env.py not found.")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -47,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'django_extensions',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -91,7 +81,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'bag.context.bag_contents',
+                'bag.contexts.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -175,7 +165,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -187,9 +176,5 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
-if not STRIPE_PUBLIC_KEY or not STRIPE_SECRET_KEY:
-    raise ValueError("Stripe API keys are not set. Please set STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY.")
-
-# Fix primary key issue
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
