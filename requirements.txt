@@ -83,6 +83,7 @@ pyperclip==1.9.0
 PyRect==0.2.0
 PyScreeze==0.1.30
 python-dateutil==2.8.2
+python-decouple==3.8
 python3-openid==3.2.0
 pytweening==1.2.0
 pytz==2023.3.post1
