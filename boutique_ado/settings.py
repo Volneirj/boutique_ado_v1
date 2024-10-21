@@ -29,7 +29,7 @@ if not SECRET_KEY:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['boutiqueadowt-74adbcec463d.herokuapp.com', 'localhost' '127.0.0.1']
+ALLOWED_HOSTS = ['boutiqueadowt-74adbcec463d.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -85,7 +85,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'bag.contexts.bag_contents',
+                'bag.context.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
