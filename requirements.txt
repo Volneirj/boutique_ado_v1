@@ -13,6 +13,7 @@ cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
 cloudinary==1.36.0
+Collectfast==2.2.0
 colorama==0.4.6
 coverage==7.6.1
 crispy-bootstrap4==2024.1
@@ -116,3 +117,4 @@ urllib3==1.26.19
 watchdog==4.0.0
 webencodings==0.5.1
 Werkzeug==2.2.0
+whitenoise==6.5.0
