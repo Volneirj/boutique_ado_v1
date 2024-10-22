@@ -12,8 +12,6 @@ certifi==2023.11.17
 cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
-cloudinary==1.36.0
-Collectfast==2.2.0
 colorama==0.4.6
 coverage==7.6.1
 crispy-bootstrap4==2024.1
@@ -22,11 +20,11 @@ cryptography==41.0.5
 defusedxml==0.7.1
 dj-database-url==0.5.0
 dj3-cloudinary-storage==0.0.6
-Django==3.2.25
+Django>=3.2.25
 django-allauth==0.57.2
 django-cloudinary-storage==0.3.0
 django-countries==7.2.1
-django-crispy-forms>=1.14.0
+django-crispy-forms==1.14.0
 django-extensions==3.2.3
 django-storages==1.14.4
 django-summernote==0.8.20.0
