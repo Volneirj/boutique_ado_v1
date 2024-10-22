@@ -179,23 +179,32 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 if 'USE_AWS' in os.environ:
-    print('USANDO AWS')
+    print('Using AWS for media files, local for static files')
+    
     AWS_STORAGE_BUCKET_NAME = 'boutiqueadowt'
     AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-    # Static and media file settings
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    # Static files stored locally (temporarily)
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+    # Media files still stored on S3
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+    # Static files will be served from the local filesystem
+    STATIC_URL = '/static/'
+
+    # Media files will be served from S3
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 else:
+    print('Using local storage for both static and media files')
+
     STATIC_URL = '/static/'
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+    MEDIA_URL = '/media/'
 
 
     MEDIA_URL = '/media/'

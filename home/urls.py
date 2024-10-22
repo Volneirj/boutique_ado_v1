@@ -4,5 +4,4 @@ from .views import test_upload
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('test-upload/', test_upload),
 ]
