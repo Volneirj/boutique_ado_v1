@@ -181,7 +181,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-os.environ['USE_AWS'] = 'False'
+
 
 if 'USE_AWS' in os.environ:
     # Cache control
