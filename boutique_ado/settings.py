@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
     # Other
     'crispy_forms',
+    'crispy_bootstrap4',
     'storages',
     'collectfast',
 ]
@@ -185,6 +186,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AWS_PRELOAD_METADATA = True
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 
+os.environ['USE_AWS'] = 'True'
+
 if 'USE_AWS' in os.environ:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
@@ -195,8 +198,8 @@ if 'USE_AWS' in os.environ:
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'boutiqueadowt'
     AWS_S3_REGION_NAME = 'eu-north-1'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
     # Static and media files
