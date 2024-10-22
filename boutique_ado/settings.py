@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'storages',
-    'collectfast',
 ]
 
 MIDDLEWARE = [
@@ -182,11 +181,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# Enable Collectfast for S3
-AWS_PRELOAD_METADATA = True
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-
-os.environ['USE_AWS'] = 'True'
+os.environ['USE_AWS'] = 'False'
 
 if 'USE_AWS' in os.environ:
     # Cache control
